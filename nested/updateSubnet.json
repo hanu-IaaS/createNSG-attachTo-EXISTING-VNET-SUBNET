@@ -75,10 +75,8 @@
             "networkSecurityGroup": {
               "id": "[parameters('Subnet3NSGId')]"
             }
-          },
-          "dependsOn": [
-              "[concat(resourceId('Microsoft.Network/networkSecurityGroups', parameters('Subnet2NSG')))]"
-          ]
+          }
+         
       }
       ]
   }
