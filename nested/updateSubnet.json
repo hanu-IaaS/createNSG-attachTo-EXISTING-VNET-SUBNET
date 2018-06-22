@@ -52,32 +52,30 @@
         "type": "Microsoft.Network/virtualNetworks/subnets",
         "name": "[concat(parameters('virtualNetworkName'), '/', parameters('Subnet2Name'))]",
         "location": "[resourceGroup().location]",
-        "dependsOn": [
-            "[concat(parameters('virtualNetworkName'), '/', parameters('Subnet1Name'))]"
-            
-          ],
         "properties": {
           "addressPrefix": "[parameters('Subnet2Prefix')]",
           "networkSecurityGroup": {
             "id": "[parameters('Subnet2NSGId')]"
           }
-        }
+        },
+        "dependsOn": [
+            "[concat(resourceId('Microsoft.Network/networkSecurityGroups', parameters('Subnet1NSG')))]"
+        ]
       },
       {
         "apiVersion": "2018-03-01",
         "type": "Microsoft.Network/virtualNetworks/subnets",
         "name": "[concat(parameters('virtualNetworkName'), '/', parameters('Subnet3Name'))]",
         "location": "[resourceGroup().location]",
-        "dependsOn": [
-            "[concat(parameters('virtualNetworkName'), '/', parameters('Subnet2Name'))]"
-            
-          ],
         "properties": {
           "addressPrefix": "[parameters('Subnet2Prefix')]",
           "networkSecurityGroup": {
             "id": "[parameters('Subnet3NSGId')]"
           }
-        }
+        },
+        "dependsOn": [
+            "[concat(resourceId('Microsoft.Network/networkSecurityGroups', parameters('Subnet2NSG')))]"
+        ]
       }
     ]
 }
