@@ -103,12 +103,8 @@
             "networkSecurityGroup": {
               "id": "[parameters('Subnet3NSGId')]"
             }
-          },
-          "dependsOn": [
-            
-        ]
-         
-      }
+          }
+        }
       ]
   }
   
