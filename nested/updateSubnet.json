@@ -37,6 +37,9 @@
       },
       "Subnet3NSGId": {
           "type": "string"
+      },
+      "location": {
+          "type": "string"
       }
     },
     "variables": {},
