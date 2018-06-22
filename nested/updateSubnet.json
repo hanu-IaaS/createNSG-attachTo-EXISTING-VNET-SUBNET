@@ -41,7 +41,26 @@
     },
     "variables": {},
     "resources": [
-      {
+        {
+            "apiVersion": "2015-05-01-preview",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('Subnet1NSG')]",
+            "location": "[parameters('location')]"
+            
+          },
+          {
+            "apiVersion": "2015-05-01-preview",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('Subnet2NSG')]",
+            "location": "[parameters('location')]"
+          },
+          {
+            "apiVersion": "2015-05-01-preview",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('Subnet3NSG')]",
+            "location": "[parameters('location')]"
+          },
+        {
         "apiVersion": "2018-03-01",
         "type": "Microsoft.Network/virtualNetworks/subnets",
         "name": "[concat(parameters('virtualNetworkName'), '/', parameters('Subnet1Name'))]",
@@ -63,10 +82,8 @@
             "networkSecurityGroup": {
               "id": "[parameters('Subnet2NSGId')]"
             }
-          },
-          "dependsOn": [
-            "[concat(resourceId('Microsoft.Network/networkSecurityGroups', parameters('Subnet1NSGId')))]"
-        ]
+          }
+         
       },
       {
           "apiVersion": "2018-03-01",
@@ -78,10 +95,8 @@
             "networkSecurityGroup": {
               "id": "[parameters('Subnet3NSGId')]"
             }
-          },
-          "dependsOn": [
-              "[concat(resourceId('Microsoft.Network/networkSecurityGroups', parameters('Subnet2NSGId')))]"
-          ]
+          }
+         
       }
       ]
   }
