@@ -178,7 +178,10 @@
             },  
             "Subnet3NSGId": {  
               "value": "[concat(resourceId('Microsoft.Network/networkSecurityGroups', parameters('Subnet3NSG')))]"
-            }
+            },
+            "location": {
+               "value": "[parameters('location')]" 
+            }  
           }
         }
       }
