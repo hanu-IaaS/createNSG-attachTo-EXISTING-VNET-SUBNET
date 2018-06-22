@@ -23,6 +23,12 @@
     "Subnet3Prefix": {
         "type": "string"
     },
+    "Subnet1NSG": {
+        "type":"string"
+    },
+     "Subnet2NSG": {
+        "type":"string"
+    },
     "Subnet1NSGId": {
       "type": "string"
     },
