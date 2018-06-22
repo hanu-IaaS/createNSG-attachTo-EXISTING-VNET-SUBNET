@@ -167,8 +167,8 @@
             "Subnet1NSG": {
             "value": "[parameters('Subnet1NSG')]"
             },
-            "Subnet1NSG": {
-            "value": "[parameters('Subnet1NSG')]"
+            "Subnet2NSG": {
+            "value": "[parameters('Subnet2NSG')]"
             }, 
             "Subnet1NSGId": {
               "value": "[concat(resourceId('Microsoft.Network/networkSecurityGroups', parameters('Subnet1NSG')))]"
