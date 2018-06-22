@@ -164,6 +164,12 @@
             "Subnet3Prefix": {
                 "value": "[reference(resourceId(parameters('virtualNetworkResourceGroupName'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('Subnet3Name')), '2018-03-01').addressPrefix]"
             },
+            "Subnet1NSG": {
+            "value": "[parameters('Subnet1NSG')]"
+            },
+            "Subnet1NSG": {
+            "value": "[parameters('Subnet1NSG')]"
+            }, 
             "Subnet1NSGId": {
               "value": "[concat(resourceId('Microsoft.Network/networkSecurityGroups', parameters('Subnet1NSG')))]"
             },
