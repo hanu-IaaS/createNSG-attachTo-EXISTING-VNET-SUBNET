@@ -65,7 +65,7 @@
         "name": "[concat(parameters('virtualNetworkName'), '/', parameters('Subnet3Name'))]",
         "location": "[resourceGroup().location]",
         "properties": {
-          "addressPrefix": "[parameters('Subnet2Prefix')]",
+          "addressPrefix": "[parameters('Subnet3Prefix')]",
           "networkSecurityGroup": {
             "id": "[parameters('Subnet3NSGId')]"
           }
