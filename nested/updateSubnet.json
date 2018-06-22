@@ -65,7 +65,7 @@
           }
         },
         "dependsOn": [
-            "[concat(resourceId('Microsoft.Network/networkSecurityGroups', parameters('Subnet1NSG')))]"
+            "[reference(concat(resourceId('Microsoft.Network/networkSecurityGroups', parameters('Subnet1NSG'))))]"
         ]
       },
       {
