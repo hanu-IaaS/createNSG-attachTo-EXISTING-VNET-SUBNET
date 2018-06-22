@@ -88,8 +88,10 @@
             "networkSecurityGroup": {
               "id": "[parameters('Subnet2NSGId')]"
             }
-          }
-         
+          },
+          "dependsOn": [
+            "[resourceId('Microsoft.Network/networkSecurityGroups', 'parameters('Subnet1NSG')')]"
+        ]
       },
       {
           "apiVersion": "2018-03-01",
@@ -101,7 +103,10 @@
             "networkSecurityGroup": {
               "id": "[parameters('Subnet3NSGId')]"
             }
-          }
+          },
+          "dependsOn": [
+            "[resourceId('Microsoft.Network/networkSecurityGroups', 'parameters('Subnet2NSG')')]"
+        ]
          
       }
       ]
