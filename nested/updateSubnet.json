@@ -62,7 +62,7 @@
       {
         "apiVersion": "2018-03-01",
         "type": "Microsoft.Network/virtualNetworks/subnets",
-        "name": "[concat(parameters('virtualNetworkName'), '/', parameters('Subnet2Name'))]",
+        "name": "[concat(parameters('virtualNetworkName'), '/', parameters('Subnet3Name'))]",
         "location": "[resourceGroup().location]",
         "properties": {
           "addressPrefix": "[parameters('Subnet2Prefix')]",
