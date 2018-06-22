@@ -47,25 +47,7 @@
     },
     "variables": {},
     "resources": [
-        {
-            "apiVersion": "2015-05-01-preview",
-            "type": "Microsoft.Network/networkSecurityGroups",
-            "name": "[parameters('Subnet1NSG')]",
-            "location": "[parameters('location')]"
-            
-          },
-          {
-            "apiVersion": "2015-05-01-preview",
-            "type": "Microsoft.Network/networkSecurityGroups",
-            "name": "[parameters('Subnet2NSG')]",
-            "location": "[parameters('location')]"
-          },
-          {
-            "apiVersion": "2015-05-01-preview",
-            "type": "Microsoft.Network/networkSecurityGroups",
-            "name": "[parameters('Subnet3NSG')]",
-            "location": "[parameters('location')]"
-          },
+     
         {
         "apiVersion": "2018-03-01",
         "type": "Microsoft.Network/virtualNetworks/subnets",
