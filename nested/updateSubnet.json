@@ -29,6 +29,9 @@
        "Subnet2NSG": {
           "type":"string"
       },
+       "Subnet3NSG": {
+          "type":"string"
+      },  
       "Subnet1NSGId": {
         "type": "string"
       },
