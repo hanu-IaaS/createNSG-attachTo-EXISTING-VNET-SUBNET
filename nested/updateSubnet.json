@@ -1,87 +1,85 @@
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "virtualNetworkName": {
-      "type": "string"
-    },
-    "Subnet1Name": {
-      "type": "string"
-    },
-    "Subnet2Name": {
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "virtualNetworkName": {
         "type": "string"
-    },
-    "Subnet3Name": {
+      },
+      "Subnet1Name": {
         "type": "string"
-    },
-    "Subnet1Prefix": {
-      "type": "string"
-    },
-    "Subnet2Prefix": {
+      },
+      "Subnet2Name": {
+          "type": "string"
+      },
+      "Subnet3Name": {
+          "type": "string"
+      },
+      "Subnet1Prefix": {
         "type": "string"
-    },
-    "Subnet3Prefix": {
+      },
+      "Subnet2Prefix": {
+          "type": "string"
+      },
+      "Subnet3Prefix": {
+          "type": "string"
+      },
+      "Subnet1NSG": {
+          "type":"string"
+      },
+       "Subnet2NSG": {
+          "type":"string"
+      },
+      "Subnet1NSGId": {
         "type": "string"
-    },
-    "Subnet1NSG": {
-        "type":"string"
-    },
-     "Subnet2NSG": {
-        "type":"string"
-    },
-    "Subnet1NSGId": {
-      "type": "string"
-    },
-    "Subnet2NSGId": {
-        "type": "string"
-    },
-    "Subnet3NSGId": {
-        "type": "string"
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "apiVersion": "2018-03-01",
-      "type": "Microsoft.Network/virtualNetworks/subnets",
-      "name": "[concat(parameters('virtualNetworkName'), '/', parameters('Subnet1Name'))]",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "addressPrefix": "[parameters('Subnet1Prefix')]",
-        "networkSecurityGroup": {
-          "id": "[parameters('Subnet1NSGId')]"
-        }
+      },
+      "Subnet2NSGId": {
+          "type": "string"
+      },
+      "Subnet3NSGId": {
+          "type": "string"
       }
     },
-    {
-        "apiVersion": "2018-03-01",
-        "type": "Microsoft.Network/virtualNetworks/subnets",
-        "name": "[concat(parameters('virtualNetworkName'), '/', parameters('Subnet2Name'))]",
-        "location": "[resourceGroup().location]",
-        "properties": {
-          "addressPrefix": "[parameters('Subnet2Prefix')]",
-          "networkSecurityGroup": {
-            "id": "[parameters('Subnet2NSGId')]"
-          }
-        },
-        "dependsOn": [
-            "[reference(concat(resourceId('Microsoft.Network/networkSecurityGroups', parameters('Subnet1NSG'))))]"
-        ]
-      },
+    "variables": {},
+    "resources": [
       {
         "apiVersion": "2018-03-01",
         "type": "Microsoft.Network/virtualNetworks/subnets",
-        "name": "[concat(parameters('virtualNetworkName'), '/', parameters('Subnet3Name'))]",
+        "name": "[concat(parameters('virtualNetworkName'), '/', parameters('Subnet1Name'))]",
         "location": "[resourceGroup().location]",
         "properties": {
-          "addressPrefix": "[parameters('Subnet2Prefix')]",
+          "addressPrefix": "[parameters('Subnet1Prefix')]",
           "networkSecurityGroup": {
-            "id": "[parameters('Subnet3NSGId')]"
+            "id": "[parameters('Subnet1NSGId')]"
           }
-        },
-        "dependsOn": [
-            "[concat(resourceId('Microsoft.Network/networkSecurityGroups', parameters('Subnet2NSG')))]"
-        ]
+        }
+      },
+      {
+          "apiVersion": "2018-03-01",
+          "type": "Microsoft.Network/virtualNetworks/subnets",
+          "name": "[concat(parameters('virtualNetworkName'), '/', parameters('Subnet2Name'))]",
+          "location": "[resourceGroup().location]",
+          "properties": {
+            "addressPrefix": "[parameters('Subnet2Prefix')]",
+            "networkSecurityGroup": {
+              "id": "[parameters('Subnet2NSGId')]"
+            }
+          }
+      },
+      {
+          "apiVersion": "2018-03-01",
+          "type": "Microsoft.Network/virtualNetworks/subnets",
+          "name": "[concat(parameters('virtualNetworkName'), '/', parameters('Subnet3Name'))]",
+          "location": "[resourceGroup().location]",
+          "properties": {
+            "addressPrefix": "[parameters('Subnet2Prefix')]",
+            "networkSecurityGroup": {
+              "id": "[parameters('Subnet3NSGId')]"
+            }
+          },
+          "dependsOn": [
+              "[concat(resourceId('Microsoft.Network/networkSecurityGroups', parameters('Subnet2NSG')))]"
+          ]
       }
-    ]
-}
+      ]
+  }
+  
